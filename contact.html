@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width" />
     <script src="./js/toggle-menu.js"></script>
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="./css/access.css" />
+    <link rel="stylesheet" href="./css/contact.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,17 +21,20 @@
     <!-- headerここから -->
     <header class="header">
       <div class="header-inner">
-        <a class="header-logo" href="./index.html">
-          <img src="./images/common/logo-header.png" alt="KISSA" />
-        </a>
+        <div class="rollover">
+          <a class="header-logo" href="./index.html">
+            <img src="./images/common/logo-header.png" alt=" OUTDOOR" />
+            <img src="./images/common/logo-header0.png" alt="OUTDOOR" />
+          </a>
+        </div>
         <button class="toggle-menu-button"></button>
         <div class="header-site-menu">
           <nav class="site-menu">
             <ul>
               <li><a href="./concept.html">CONCEPT</a></li>
-              <li><a href="./menu.html"> ACTIVITY</a></li>
-              <li><a href="./shop.html"> PICTURE</a></li>
-              <li><a href="./access.html">CONTACT</a></li>
+              <li><a href="./activity.html"> ACTIVITY</a></li>
+              <li><a href="./photo.html"> PHOTO</a></li>
+              <li><a href="./contact.html">CONTACT</a></li>
             </ul>
           </nav>
         </div>
@@ -72,12 +75,14 @@
             <dt>お問い合わせ種別</dt>
             <dd>
               <select class="select-box" name="genre">
-                <option value="ご予約について" selected>ご予約について</option>
-                <option value="メニューについて">メニューについて</option>
-                <option value="営業時間について">営業時間について</option>
+                <option value="当サイトについて" selected>
+                  当サイトについて
+                </option>
+                <option value="イベントについて">イベントについて</option>
+                <option value="写真投稿">写真投稿</option>
               </select>
             </dd>
-            <dt>お客様について</dt>
+            <dt>あなたについて</dt>
             <dd>
               <label class="radio-button"
                 ><input
@@ -85,14 +90,14 @@
                   name="user-type"
                   value="一般のお客様"
                   checked
-                />一般のお客様</label
+                />一般の方</label
               >
               <label class="radio-button"
                 ><input
                   type="radio"
                   name="user-type"
                   value="お取引先様"
-                />お取引先様</label
+                />法人様</label
               >
               <label class="radio-button"
                 ><input
@@ -110,7 +115,9 @@
           <p class="confilm-text">
             ご入力内容をご確認の上、お間違いがなければ［Submit］ボタンを押してください。
           </p>
-          <button class="submit-button" type="submit">Submit</button>
+          <div class="link-submit">
+            <button class="submit-button" type="submit">Submit</button>
+          </div>
         </form>
       </div>
     </main>
@@ -121,17 +128,18 @@
       <nav class="site-menu">
         <ul>
           <li><a href="./concept.html">CONCEPT</a></li>
-          <li><a href="./menu.html"> ACTIVITY</a></li>
-          <li><a href="./shop.html"> PICTURE</a></li>
-          <li><a href="./access.html">CONTACT</a></li>
+          <li><a href="./activity.html"> ACTIVITY</a></li>
+          <li><a href="./photo.html"> PHOTO</a></li>
+          <li><a href="./contact.html">CONTACT</a></li>
         </ul>
       </nav>
-      <a class="footer-logo" href="./index.html">
-        <img src="./images/common/logo-footer.png" alt="KISSA" />
-      </a>
+      <div class="rollover">
+        <a class="footer-logo" href="./index.html">
+          <img src="./images/common/logo-footer.png" alt="DOOR" />
+          <img src="./images/common/logo-footer0.png" alt="DOOR" />
+        </a>
+      </div>
       <p class="footer-tel">TEL 01-2345-6789</p>
-      <p class="footer-time">OPEN Fri-sun 11:00-16:00</p>
-      <p class="copyright"><small>&copy;Kissa</small></p>
     </footer>
     <!-- footerはここまで -->
   </body>

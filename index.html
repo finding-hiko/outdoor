@@ -7,6 +7,7 @@
     <meta name="description" content="OUTDOOR情報のウェブサイトです。" />
     <meta name="viewport" content="width=device-width" />
     <script src="./js/toggle-menu.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,23 +16,91 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/jquery.bxslider.css" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="./js/jquery.bxslider.min.js"></script>
+    <script>
+      $(function () {
+        $(".slider").bxSlider({
+          auto: true,
+          pause: 6000,
+        });
+      });
+      function load_effect() {
+        var element = document.getElementsByClassName("first-view-text");
+        if (!element) return; // 要素がない場合は終了
+
+        for (var i = 0; i < element.length; i++) {
+          element[i].classList.add("is-show");
+        }
+        var greenText = document.getElementsByClassName("green-text");
+
+        for (var i = 0; i < greenText.length; i++) {
+          greenText[i].classList.add("green");
+        }
+      }
+
+      setTimeout(load_effect, 600);
+
+      function scroll_effect() {
+        var element = document.getElementsByClassName("category");
+        if (!element) return;
+
+        var scrollY = window.pageYOffset;
+        var windowH = window.innerHeight;
+        var showTiming = 200; // 要素を表示するタイミング
+        for (var i = 0; i < element.length; i++) {
+          var elemClientRect = element[i].getBoundingClientRect();
+          var elemY = scrollY + elemClientRect.top;
+          if (scrollY > elemY - windowH + showTiming) {
+            element[i].classList.add("is-show");
+          }
+        }
+      }
+
+      function scroll_effect2() {
+        var element = document.getElementsByClassName("category2");
+        if (!element) return;
+
+        var scrollY = window.pageYOffset;
+        var windowH = window.innerHeight;
+        var showTiming = 200; // 要素を表示するタイミング
+        for (var i = 0; i < element.length; i++) {
+          var elemClientRect = element[i].getBoundingClientRect();
+          var elemY = scrollY + elemClientRect.top;
+          if (scrollY > elemY - windowH + showTiming) {
+            element[i].classList.add("is-show");
+          }
+        }
+      }
+      window.addEventListener("scroll", scroll_effect);
+      window.addEventListener("scroll", scroll_effect2);
+      // スクロール時に実行
+    </script>
   </head>
 
   <body>
     <!-- headerここから -->
     <header class="header">
       <div class="header-inner">
-        <a class="header-logo" href="./index.html">
-          <img src="./images/common/logo-header.png" alt=" OUTDOOR" />
-        </a>
+        <div class="rollover">
+          <a class="header-logo" href="./index.html">
+            <img src="./images/common/logo-header.png" alt=" OUTDOOR" />
+            <img src="./images/common/logo-header0.png" alt="OUTDOOR" />
+          </a>
+        </div>
+
         <button class="toggle-menu-button"></button>
         <div class="header-site-menu">
           <nav class="site-menu">
             <ul>
-              <li><a href="./concept.html">CONCEPT</a></li>
-              <li><a href="./menu.html">ACTIVITY</a></li>
-              <li><a href="./shop.html">PHOTO</a></li>
-              <li><a href="./access.html">CONTACT</a></li>
+              <li>
+                <a href="./concept.html">CONCEPT</a>
+              </li>
+              <li><a href="./activity.html"> ACTIVITY</a></li>
+              <li><a href="./photo.html"> PHOTO</a></li>
+              <li><a href="./contact.html">CONTACT</a></li>
             </ul>
           </nav>
         </div>
@@ -42,11 +111,27 @@
     <!-- mainはここから -->
     <main class="main">
       <div class="first-view">
+        <ul class="slider">
+          <li><img src="./images/index/bg-main.jpg" alt="" /></li>
+          <li><img src="./images/concept/bg-main.JPG" alt="" /></li>
+          <li><img src="./images/photo/img-item08.jpg" alt="" /></li>
+          <li><img src="./images/activity/bg-main.JPG" alt="" /></li>
+
+          <li><img src="./images/contact/bg-main.jpg" alt="" /></li>
+
+          <li><img src="./images/photo/img-item06.jpg" alt="" /></li>
+        </ul>
         <div class="first-view-text">
           <h1>
-            Lets go <span>OUT</span>side. <br />Open a new <span>DOOR</span>.
+            Lets go <span class="green-text">OUT</span>side. <br />Open a new
+            <span class="green-text">DOOR</span>.
           </h1>
-          <p><span>外</span>に飛び出そう。新たな<span>扉</span>を開けよう。</p>
+          <p>
+            <span class="green-text">外</span>に飛び出そう。新たな<span
+              class="green-text"
+              >扉</span
+            >を開けよう。
+          </p>
         </div>
       </div>
       <div class="lead">
@@ -61,57 +146,62 @@
         <h2>activity</h2>
         <ul class="item-list">
           <li>
-            <img src="./images/index/img-item01.jpg" alt="キャンプの画像" />
-            <dl>
-              <dt>キャンプ</dt>
-              <dd>
-                <!-- エスプレッソとミルク、この組み合わせに勝るものはなかなか見つかりません。ホッとしたいとき、やっぱりラテが欲しくなる。 -->
-              </dd>
-            </dl>
+            <div class="activity">
+              <img
+                class="category"
+                src="./images/index/w-img-item01.jpg"
+                alt="キャンプの画像"
+              />
+              <p class="activity-name">CAMP</p>
+            </div>
           </li>
 
           <li>
-            <img src="./images/index/img-item02.jpg" alt="登山の画像" />
-            <dl>
-              <dt>登山</dt>
-              <dd>
-                <!-- コーヒーに合うお菓子を追求して生まれた当店の大人気メニュー。数量・季節ともに限定のため、見つけたらぜひお試しを。 -->
-              </dd>
-            </dl>
+            <div class="activity reverse">
+              <img
+                class="category2"
+                src="./images/index/w-img-item02.jpg"
+                alt="登山の画像"
+              />
+              <p class="activity-name2">CLIMBING</p>
+            </div>
           </li>
 
           <li>
-            <img src="./images/index/img-item03.jpg" alt="沢登りの画像" />
-            <dl>
-              <dt>沢登り</dt>
-              <dd>
-                <!-- コーヒーに合うお菓子を追求して生まれた当店の大人気メニュー。数量・季節ともに限定のため、見つけたらぜひお試しを。 -->
-              </dd>
-            </dl>
+            <div class="activity">
+              <img
+                class="category"
+                src="./images/index/w-img-item03.jpg"
+                alt="沢登りの画像"
+              />
+              <p class="activity-name">SHOWER CLIMBING</p>
+            </div>
           </li>
 
           <li>
-            <img src="./images/index/img-item04.jpg" alt="釣りの商品画像" />
-            <dl>
-              <dt>釣り</dt>
-              <dd>
-                <!-- 瀬戸内海に浮かぶ小島で、オーナー自らが栽培したとっておきのレモンを、たっぷりと使った自慢のレモネードです。 -->
-              </dd>
-            </dl>
+            <div class="activity reverse">
+              <img
+                class="category2"
+                src="./images/index/w-img-item04.jpg"
+                alt="釣りの商品画像"
+              />
+              <p class="activity-name2">FISHING</p>
+            </div>
           </li>
 
           <li>
-            <img src="./images/index/img-item05.jpg" alt="スキーの画像" />
-            <dl>
-              <dt>スキー</dt>
-              <dd>
-                <!-- ちょっと小腹が空いたとき、あると嬉しいホットドッグ。特製チリソースとチーズをかければ、もう言葉はいりません。 -->
-              </dd>
-            </dl>
+            <div class="activity">
+              <img
+                class="category"
+                src="./images/index/w-img-item05.jpg"
+                alt="スキーの画像"
+              />
+              <p class="activity-name">SKIING</p>
+            </div>
           </li>
         </ul>
         <div class="link-button-area">
-          <a class="link-button" href="./menu.html">MORE</a>
+          <a class="link-button" href="./activity.html">MORE</a>
         </div>
       </div>
     </main>
@@ -122,18 +212,21 @@
       <nav class="site-menu">
         <ul>
           <li><a href="./concept.html">CONCEPT</a></li>
-          <li><a href="./menu.html">ACTIVITY</a></li>
-          <li><a href="./shop.html">PHOTO</a></li>
-          <li><a href="./access.html">CONTACT</a></li>
+          <li><a href="./activity.html"> ACTIVITY</a></li>
+          <li><a href="./photo.html"> PHOTO</a></li>
+          <li><a href="./contact.html">CONTACT</a></li>
         </ul>
       </nav>
-      <a class="footer-logo" href="./index.html">
-        <img src="./images/common/logo-footer.png" alt="KISSA" />
-      </a>
+      <div class="rollover">
+        <a class="footer-logo" href="./index.html">
+          <img src="./images/common/logo-footer.png" alt="DOOR" />
+          <img src="./images/common/logo-footer0.png" alt="DOOR" />
+        </a>
+      </div>
       <p class="footer-tel">TEL 01-2345-6789</p>
-      <p class="footer-time">OPEN Fri-sun 11:00-16:00</p>
-      <p class="copyright"><small>&copy;Kissa</small></p>
     </footer>
+    <script src="./js/bootstrap.min.js"></script>
+
     <!-- footerはここまで -->
   </body>
 </html>

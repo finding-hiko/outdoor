@@ -27,14 +27,19 @@ body {
 }
 
 img {
-  max-width: 90%;
+  max-width: 100%;
 }
 /* headerはここから */
+.header-logo img {
+  max-width: 85%;
+}
+
 .header-inner {
   max-width: 1200px;
   height: 110px;
   margin-left: auto;
   margin-right: auto;
+
   padding-left: 40px;
   padding-right: 40px;
   display: flex;
@@ -46,6 +51,24 @@ img {
   display: none;
 }
 
+.rollover {
+  position: relative;
+}
+
+.rollover img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: block;
+  transition: 0.7s;
+}
+.rollover:hover img:nth-of-type(2) {
+  opacity: 0;
+}
+
 .header-logo {
   display: block;
   width: 200px;
@@ -53,6 +76,8 @@ img {
 
 .site-menu ul {
   display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
 }
 
 .site-menu ul li {
@@ -64,6 +89,11 @@ img {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
 }
+
+.site-menu ul li a:hover {
+  color: #01bb13;
+}
+
 /* headerはここまで */
 
 /* footerはここから */
@@ -80,25 +110,15 @@ img {
 .footer-logo {
   display: block;
   width: 235px;
-  margin-top: 90px;
+  margin-top: 220px;
 }
 
 .footer-tel {
   font-size: 26px;
   font-weight: bold;
-  margin-top: 28px;
+  margin-top: 10px;
 }
 
-.footer-time {
-  font-size: 13px;
-  margin-top: 16px;
-}
-
-.copyright {
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 90px;
-}
 /* footerはここまで */
 @media (max-width: 800px) {
   .site-menu ul {
@@ -138,7 +158,7 @@ img {
     left: 0;
     right: 0;
     color: #ffffff;
-    background-color: #736e62;
+    background-color: #24211b;
     padding-top: 30px;
     padding-bottom: 50px;
     display: none;
@@ -166,15 +186,7 @@ img {
     padding-top: 50px;
   }
 
-  .footer-logo {
-    margin-top: 50px;
-  }
-
   .footer-tel {
     font-size: 20px;
-  }
-
-  .copyright {
-    max-width: 50px;
   }
 }
