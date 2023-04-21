@@ -30,6 +30,14 @@ img {
   max-width: 100%;
 }
 /* headerはここから */
+
+.header {
+  position: fixed;
+
+  width: 100%;
+  z-index: 3;
+  background-color: #ffffff;
+}
 .header-logo img {
   max-width: 85%;
 }
@@ -96,6 +104,9 @@ img {
 
 /* headerはここまで */
 
+.main {
+  padding-top: 110px;
+}
 /* footerはここから */
 .footer {
   color: #ffffff;
